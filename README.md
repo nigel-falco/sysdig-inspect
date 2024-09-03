@@ -77,6 +77,11 @@ Capture all the bad traffic:
 timeout 5 sysdig -w malicious-traffic.scap
 ```
 
+Can we see all the nmap traffic from that newly-created pod:
+```
+sysdig -r malicious-traffic.scap proc.name=nmap
+```
+
 Delete the rogue workload when no longer needed:
 ```
 kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
