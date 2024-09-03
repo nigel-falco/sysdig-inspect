@@ -1,8 +1,8 @@
 # Sysdig Inspect Lab
 
-We can compare Sysdig Inspect and Tetragon via the below Lab environment:
+We can compare Sysdig Inspect and Tetragon via the below Lab environment: <br/>
 ```https://isovalent.com/labs/tetragon-getting-started```
-<br/>
+<br/><br/>
 You can automatically install Sysdig Inspect via the below installer:
 ```
 curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | sudo bash
