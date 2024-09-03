@@ -34,3 +34,11 @@ sysdig -r nigel-capture.scap evt.type=epoll_pwait
 ```
 sysdig -r nigel-capture.scap evt.type=epoll_pwait and proc.name=kube-apiserver
 ```
+
+```
+kubectl apply -f https://installer.calicocloud.io/storefront-demo.yaml
+```
+
+```
+kubectl get pod -n storefront --show-labels
+```
