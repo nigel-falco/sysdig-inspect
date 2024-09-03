@@ -21,15 +21,15 @@ timeout 5 sysdig -w nigel-capture.scap
 
 You can read the content of the nigel-capture.scap file with the below command:
 ```
-sysdig -r capture.scap
+sysdig -r nigel-capture.scap
 ```
 
 ```epoll_pwait``` - event type is generated when a program waits for an I/O event on an epoll file descriptor
 ```
-sysdig -r capture.scap evt.type=epoll_pwait
+sysdig -r nigel-capture.scap evt.type=epoll_pwait
 ```
 
 ```kube-apiserver``` process validates and configures data for the api objects which include pods, services, and replicationcontrollers in Kubernetes
 ```
-sysdig -r capture.scap evt.type=epoll_pwait and proc.name=kube-apiserver
+sysdig -r nigel-capture.scap evt.type=epoll_pwait and proc.name=kube-apiserver
 ```
