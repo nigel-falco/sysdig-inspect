@@ -86,3 +86,11 @@ Delete the rogue workload when no longer needed:
 ```
 kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
 ```
+
+## Part 4 - Getting the help you need
+
+```
+sysdig --help
+```
+
+``` https://man7.org/linux/man-pages/man8/sysdig.8.html ```
