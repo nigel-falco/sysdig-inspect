@@ -1,5 +1,7 @@
 # Sysdig Inspect Lab
 
+## Part 1 - Install Sysdig with Basic Filters
+
 We can compare Sysdig Inspect and Tetragon via the below Lab environment: <br/>
 ```https://isovalent.com/labs/tetragon-getting-started```
 <br/><br/>
@@ -19,7 +21,7 @@ Run a capture for ```5 Seconds``` via the below ```timeout``` commands:
 timeout 5 sysdig -w nigel-capture.scap
 ```
 
-You can read the content of the nigel-capture.scap file with the below command:
+You can read the content of the ```nigel-capture.scap``` file with the below command:
 ```
 sysdig -r nigel-capture.scap
 ```
@@ -35,10 +37,21 @@ sysdig -r nigel-capture.scap evt.type=epoll_pwait
 sysdig -r nigel-capture.scap evt.type=epoll_pwait and proc.name=kube-apiserver
 ```
 
+## Part 2 - Monitoring a Microservice Architecture
+
+Introduce the Storefront web application to Kubernetes:
 ```
 kubectl apply -f https://installer.calicocloud.io/storefront-demo.yaml
 ```
-
+Check the IP addresses assigned to our workloads:
 ```
-kubectl get pod -n storefront --show-labels
+kubectl get pod -n storefront -o wide
+```
+Run a capture for ```5 Seconds``` to capture the 
+```
+timeout 5 sysdig -w storefront-capture.scap
+```
+Read the content of the ```storefront-capture.scap``` file with the below command:
+```
+sysdig -r storefront-capture.scap
 ```
