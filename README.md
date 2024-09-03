@@ -25,6 +25,7 @@ sysdig -r nigel-capture.scap
 ```
 
 ```epoll_pwait``` - event type is generated when a program waits for an I/O event on an epoll file descriptor
+```https://linux.die.net/man/2/epoll_pwait```
 ```
 sysdig -r nigel-capture.scap evt.type=epoll_pwait
 ```
