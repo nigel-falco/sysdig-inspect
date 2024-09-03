@@ -65,3 +65,19 @@ sysdig -r storefront-capture.scap proc.name=sandbox-agent or proc.name=peira
 ```
 
 <img width="953" alt="Screenshot 2024-09-03 at 16 07 37" src="https://github.com/user-attachments/assets/55ab4efe-e8cb-4167-96e6-e79bd4e486ac">
+
+## Part 3 - Introduce a Rogue/Malicious workload
+
+```
+kubectl apply -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
+```
+
+Capture all the bad traffic:
+```
+timeout 5 sysdig -w malicious-traffic.scap
+```
+
+Delete the rogue workload when no longer needed:
+```
+kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
+```
