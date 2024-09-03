@@ -51,7 +51,17 @@ Run a capture for ```5 Seconds``` to capture the
 ```
 timeout 5 sysdig -w storefront-capture.scap
 ```
+
+Better understand what processes are running on the system with either ```ps aux``` or ```top``` commands:
+<br/> 
+
+```
+ps aux
+```
+
 Read the content of the ```storefront-capture.scap``` file with the below command:
 ```
-sysdig -r storefront-capture.scap
+sysdig -r storefront-capture.scap proc.name=sandbox-agent or proc.name=peira
 ```
+
+<img width="953" alt="Screenshot 2024-09-03 at 16 07 37" src="https://github.com/user-attachments/assets/55ab4efe-e8cb-4167-96e6-e79bd4e486ac">
