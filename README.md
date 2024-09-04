@@ -97,6 +97,10 @@ This could still be useless, as its missing some context. Mayve you would like t
 sysdig --list-markdown
 ```
 
+```
+sysdig --list
+```
+
 <img width="953" alt="Screenshot 2024-09-04 at 14 10 59" src="https://github.com/user-attachments/assets/1f6b3b27-9dd4-40a8-b25f-f16ade9765a7">
 
 
@@ -115,6 +119,10 @@ kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
 
 ```
 sysdig --help
+```
+
+```
+sysdig --log-level=warning
 ```
 
 ``` https://man7.org/linux/man-pages/man8/sysdig.8.html ```
