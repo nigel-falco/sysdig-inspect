@@ -88,6 +88,16 @@ Use  ```-S``` or  ```--summary``` to print the event summary (i.e. the list of t
 sysdig -r malicious-traffic.scap proc.name=nmap --summary
 ```
 
+This could still be useless, as its missing some context. Mayve you would like to see the ```markdown format``` otuput:
+```
+sysdig -r malicious-traffic.scap proc.name=nmap --list-markdown
+```
+
+On the flip side, I never really learned how to read packets in ```ASCII format```:
+```
+sysdig -r storefront-capture.scap proc.name=sandbox-agent or proc.name=nmap --print-hex-ascii
+```
+
 Delete the rogue workload when no longer needed:
 ```
 kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
