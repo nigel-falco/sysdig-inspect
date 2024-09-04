@@ -121,6 +121,19 @@ echo "helloworld" > helloworld.txt
 cat helloworld.txt
 ```
 
+Instead, we need a background process/program that will do this throughout the length of the capture:
+```
+wget https://raw.githubusercontent.com/nigel-falco/sysdig-inspect/main/file_watcher.sh
+```
+
+```
+chmod +x file_watcher.sh
+```
+
+```
+./file_watcher.sh &
+```
+
 Print all the open system calls invoked by cat
 ```
 sysdig proc.name=cat and evt.type=open
