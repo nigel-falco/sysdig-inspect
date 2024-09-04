@@ -125,6 +125,11 @@ sysdig --help
 sysdig --log-level=warning
 ```
 
+Check which version of the Falco libraries are used:
+```
+sysdig  --libs-version
+```
+
 ``` https://man7.org/linux/man-pages/man8/sysdig.8.html ```
 
 ## Part 5 - Opening and Deleting Files
