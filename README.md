@@ -139,6 +139,10 @@ Print all the open system calls invoked by cat
 sysdig proc.name=cat and evt.type=open
 ```
 
+Compare and contrast the info collect from the Modern eBPF probe:
+```
+sysdig proc.name=cat --modern-bpf
+```
 Print the name of the files opened by cat
 ```
 sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
