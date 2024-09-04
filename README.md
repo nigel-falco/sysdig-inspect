@@ -93,7 +93,8 @@ This could still be useless, as its missing some context. Mayve you would like t
 sysdig -r malicious-traffic.scap proc.name=nmap --list-markdown
 ```
 
-![Uploading Screenshot 2024-09-04 at 14.10.59.png…]()
+<img width="953" alt="Screenshot 2024-09-04 at 14 10 59" src="https://github.com/user-attachments/assets/1f6b3b27-9dd4-40a8-b25f-f16ade9765a7">
+
 
 
 On the flip side, I never really learned how to read packets in ```ASCII format```:
