@@ -195,3 +195,8 @@ Above is the top files by activity, the below is top system calls over a period 
 ```
 sysdig -c topscalls.lua
 ```
+
+Advanced use case to exclude specific file descriptor names:
+```
+sysdig -c topfiles_bytes "not fd.name contains /dev"
+```
