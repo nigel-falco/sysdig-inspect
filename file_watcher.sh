@@ -10,8 +10,8 @@ while true; do
         echo "helloworld" > "$filename"
     fi
 
-    # Display the contents of the file
-    cat "$filename"
+    # Display the contents of the file, but discard the output
+    cat "$filename" > /dev/null
 
     # Wait for a second before repeating
     sleep 1
