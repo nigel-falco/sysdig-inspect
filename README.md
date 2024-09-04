@@ -88,9 +88,13 @@ Use  ```-S``` or  ```--summary``` to print the event summary (i.e. the list of t
 sysdig -r malicious-traffic.scap proc.name=nmap --summary
 ```
 
+<img width="953" alt="Screenshot 2024-09-04 at 14 40 33" src="https://github.com/user-attachments/assets/b6e6e05e-f158-4667-b2a9-1bf82748a87c">
+
+
+
 This could still be useless, as its missing some context. Mayve you would like to see the ```markdown format``` otuput:
 ```
-sysdig -r malicious-traffic.scap proc.name=nmap --list-markdown
+sysdig --list-markdown
 ```
 
 <img width="953" alt="Screenshot 2024-09-04 at 14 10 59" src="https://github.com/user-attachments/assets/1f6b3b27-9dd4-40a8-b25f-f16ade9765a7">
