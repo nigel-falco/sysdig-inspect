@@ -111,6 +111,12 @@ echo "helloworld" > helloworld.txt
 cat helloworld.txt
 ```
 
+Print all the open system calls invoked by cat
 ```
 sysdig proc.name=cat and evt.type=open
+```
+
+Print the name of the files opened by cat
+```
+sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
 ```
