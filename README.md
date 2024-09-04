@@ -134,7 +134,7 @@ Check which version of the Falco libraries are used:
 sysdig  --libs-version
 ```
 <br/>
-``` https://man7.org/linux/man-pages/man8/sysdig.8.html ```
+https://man7.org/linux/man-pages/man8/sysdig.8.html
 
 ## Part 5 - Opening and Deleting Files
 
