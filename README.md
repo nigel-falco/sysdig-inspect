@@ -125,11 +125,15 @@ sysdig --help
 sysdig --log-level=warning
 ```
 
+#### Run Sysdig as non-root user
+
+```https://github.com/draios/sysdig/wiki/How-to-Install-Sysdig-for-Linux#use-sysdig-as-non-root```
+
 Check which version of the Falco libraries are used:
 ```
 sysdig  --libs-version
 ```
-
+<br/>
 ``` https://man7.org/linux/man-pages/man8/sysdig.8.html ```
 
 ## Part 5 - Opening and Deleting Files
