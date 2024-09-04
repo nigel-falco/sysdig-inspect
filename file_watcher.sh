@@ -13,6 +13,6 @@ while true; do
     # Display the contents of the file, but discard the output
     cat "$filename" > /dev/null
 
-    # Wait for 10 seconds before repeating - enough time to run the capture
-    sleep 10
+    # Wait for 5 seconds before repeating - enough time to run the capture
+    sleep 5
 done
