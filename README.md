@@ -93,6 +93,9 @@ This could still be useless, as its missing some context. Mayve you would like t
 sysdig -r malicious-traffic.scap proc.name=nmap --list-markdown
 ```
 
+![Uploading Screenshot 2024-09-04 at 14.10.59.png…]()
+
+
 On the flip side, I never really learned how to read packets in ```ASCII format```:
 ```
 sysdig -r storefront-capture.scap proc.name=sandbox-agent or proc.name=nmap --print-hex-ascii
@@ -143,6 +146,10 @@ Compare and contrast the info collect from the Modern eBPF probe:
 ```
 sysdig proc.name=cat --modern-bpf
 ```
+
+<img width="953" alt="Screenshot 2024-09-04 at 14 37 45" src="https://github.com/user-attachments/assets/b74868c5-666f-4cb8-b379-57792ae65dee">
+
+
 Print the name of the files opened by cat
 ```
 sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
