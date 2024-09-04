@@ -176,3 +176,22 @@ Print the name of the files opened by cat
 ```
 sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
 ```
+
+## Part 6 - Chisels
+
+Sysdig chisels are little scripts that analyze the sysdig event stream to perform useful actions. <br/>
+To get the list of available chisels, type
+            
+```
+sysdig -cl
+```
+
+To run one of the chisels, you use the ```-c``` flag, e.g.
+```
+sysdig -c topfiles_bytes
+```
+
+Above is the top files by activity, the below is top system calls over a period of time:
+```
+sysdig -c topscalls.lua
+```
