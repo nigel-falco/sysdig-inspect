@@ -82,6 +82,12 @@ Can we see all the nmap traffic from that newly-created pod:
 sysdig -r malicious-traffic.scap proc.name=nmap
 ```
 
+Use  ```-S``` or  ```--summary``` to print the event summary (i.e. the list of the top events) when the capture ends.
+
+```
+sysdig -r malicious-traffic.scap proc.name=nmap --summary
+```
+
 Delete the rogue workload when no longer needed:
 ```
 kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
@@ -94,3 +100,17 @@ sysdig --help
 ```
 
 ``` https://man7.org/linux/man-pages/man8/sysdig.8.html ```
+
+## Part 5 - Opening and Deleting Files
+
+```
+echo "helloworld" > helloworld.txt
+```
+
+```
+cat helloworld.txt
+```
+
+```
+sysdig proc.name=cat and evt.type=open
+```
