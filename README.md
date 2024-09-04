@@ -109,6 +109,10 @@ On the flip side, I never really learned how to read packets in ```ASCII format`
 ```
 sysdig -r storefront-capture.scap proc.name=sandbox-agent or proc.name=nmap --print-hex-ascii
 ```
+Filter for some specific plain text context from within the scap output:
+```
+sysdig -r storefront-capture.scap "proc.name=wget and evt.type=write" | grep -a "api.twilio.com"
+```
 
 Delete the rogue workload when no longer needed:
 ```
@@ -119,6 +123,10 @@ kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
 
 ```
 sysdig --help
+```
+
+```
+sysdig --help | grep -a "color"
 ```
 
 ```
