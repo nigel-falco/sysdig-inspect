@@ -53,13 +53,13 @@ timeout 5 sysdig -w storefront-capture.scap
 ```
 
 Better understand what processes are running on the system with either ```ps aux``` or ```top``` commands:
-<br/> 
+<br/> In my case, I will also grep/filter the search down for ```peira``` releated process activity.
 
 ```
-ps aux
+ps aux | grep -a "peira"
 ```
 
-Read the content of the ```storefront-capture.scap``` file with the below command:
+Read the content of the ```storefront-capture.scap``` file where the process name ```peira``` was identified:
 ```
 sysdig -r storefront-capture.scap proc.name=sandbox-agent or proc.name=peira
 ```
