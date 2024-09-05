@@ -171,12 +171,7 @@ chmod +x file_watcher.sh
 
 Print all the open system calls invoked by cat
 ```
-sysdig proc.name=cat and evt.type=open
-```
-
-Compare and contrast the info collect from the Modern eBPF probe:
-```
-sysdig proc.name=cat --modern-bpf
+sysdig proc.name=cat and evt.type=read and evt.buffer contains helloworld
 ```
 
 <img width="953" alt="Screenshot 2024-09-04 at 14 37 45" src="https://github.com/user-attachments/assets/b74868c5-666f-4cb8-b379-57792ae65dee">
@@ -185,6 +180,11 @@ sysdig proc.name=cat --modern-bpf
 Print the name of the files opened by cat
 ```
 sysdig -p"%evt.arg.name" proc.name=cat and evt.type=open
+```
+
+Compare and contrast the info collect from the Modern eBPF probe:
+```
+sysdig proc.name=cat --modern-bpf
 ```
 
 ## Part 6 - Chisels
