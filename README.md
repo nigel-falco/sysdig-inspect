@@ -230,3 +230,17 @@ chmod +x login_shells.sh
 ```
 ./login_shells.sh &
 ```
+
+To avoid this syntax errors, you can either escape the parentheses or wrap the entire filter in quotes so that the shell doesn't misinterpret the command.
+```
+sysdig "proc.name in (bash,sh,zsh) and evt.type=execve"
+```
+For checking interactive terminal activity, use:
+```
+sysdig "proc.name in (bash,sh,zsh) and fd.name contains /dev/tty"
+```
+
+![Screenshot 2024-09-05 at 15 34 17](https://github.com/user-attachments/assets/25bb16d8-4628-4406-94ad-22bf82979680)
+
+
+
