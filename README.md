@@ -116,6 +116,11 @@ Filter for some specific plain text context from within the scap output:
 sysdig -r storefront-capture.scap "proc.name=wget and evt.type=write" | grep -a "api.twilio.com"
 ```
 
+You can also watch this activity via Sysdig Chisels:
+```
+sysdig -c spy_users.lua
+```
+
 Delete the rogue workload when no longer needed:
 ```
 kubectl delete -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
