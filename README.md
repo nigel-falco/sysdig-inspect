@@ -215,3 +215,18 @@ Advanced use case to exclude specific file descriptor names:
 ```
 sysdig -c topfiles_bytes "not fd.name contains /dev"
 ```
+
+## Part 7 - Terminal Shell into Containers
+
+Again, we need a background process to run automatic shell logins
+```
+wget https://raw.githubusercontent.com/nigel-falco/sysdig-inspect/main/login_shells.sh
+```
+
+```
+chmod +x login_shells.sh
+```
+
+```
+./login_shells.sh &
+```
