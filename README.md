@@ -77,10 +77,12 @@ Capture all the bad traffic:
 timeout 5 sysdig -w malicious-traffic.scap
 ```
 
-Can we see all the nmap traffic from that newly-created pod:
+Can we see all the ```nmap``` traffic from that newly-created pod:
 ```
-sysdig -r malicious-traffic.scap proc.name=nmap and evt.type=sendto
+sysdig -r malicious-traffic.scap "proc.name=nmap and evt.type=sendto and fd.sip=10.244.0.8"
 ```
+
+
 
 Use  ```-S``` or  ```--summary``` to print the event summary (i.e. the list of the top events) when the capture ends.
 
