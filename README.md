@@ -251,3 +251,30 @@ sysdig "proc.name in (bash,sh,zsh) and fd.name contains /dev/tty"
 ```
 sysdig "proc.name in (bash,sh,zsh) and evt.type=execve" -p "%evt.time %proc.name %user.name"
 ```
+
+## Part 8 - Plugins
+
+The same plugins used by ```Falco``` can also be also used for extending the inputs of ```Sysdig OSS```. <br/>
+Plugins help to add new event sources that can be evaluated using filtering expressions/Falco rules and the ability to define new fields that can extract information from events.
+
+<img width="498" alt="Screenshot 2024-09-06 at 09 56 41" src="https://github.com/user-attachments/assets/f21961de-59c4-41a6-8557-845e3fb03439">
+
+Once installed, download the plugin you need from the [plugin registry](https://d20hasrqv82i0q.cloudfront.net/?prefix=plugins/stable/) or elsewhere and install it in ```/usr/share/sysdig/plugins``` following these steps:
+
+```
+mkdir -p /usr/share/sysdig/plugins
+cd /tmp
+wget https://download.falco.org/plugins/stable/dummy-0.2.0-x86_64.tar.gz
+tar xvzf dummy-0.2.0-x86_64.tar.gz
+mv libdummy.so /usr/share/sysdig/plugins/
+```
+
+To verify the plugin is correctly deployed, you can run the following command:
+```
+sysdig -Il
+```
+
+### Configuration file
+
+
+
