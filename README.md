@@ -276,5 +276,22 @@ sysdig -Il
 
 ### Configuration file
 
+To enable plugins, you can either use a Falco plugin configuration file or pass arguments to your command line. <br/>
+Let's download an example of a config file for the dummy plugin to generate ```10 synthetic events``` to briefly test our plugin framework:
 
+```
+wget https://raw.githubusercontent.com/nigel-falco/sysdig-inspect/main/dummy-config.yaml
+```
 
+To use this configuration file, just use the option ```--plugin-config-file``` followed by the filename you have created containing the configuration.
+```
+sysdig --plugin-config-file dummy-config.yaml
+```
+
+### Command line configuration
+
+As an alternative, you can use the options -H and/or -I in the command line to configure a plugin as follows:
+
+```
+sysdig -H dummy:'{"jitter":50}' -I dummy:'{"start":1,"maxEvents":10}'
+```
