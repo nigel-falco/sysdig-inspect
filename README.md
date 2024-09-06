@@ -252,6 +252,11 @@ sysdig "proc.name in (bash,sh,zsh) and fd.name contains /dev/tty"
 sysdig "proc.name in (bash,sh,zsh) and evt.type=execve" -p "%evt.time %proc.name %user.name"
 ```
 
+Get the container-specific activity:
+```
+sysdig --modern-bpf -pc evt.type=connect and container.id!=host
+```
+
 ## Part 8 - Plugins
 
 The same plugins used by ```Falco``` can also be also used for extending the inputs of ```Sysdig OSS```. <br/>
