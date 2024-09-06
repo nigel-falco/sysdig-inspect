@@ -1,0 +1,7 @@
+plugins:
+  - name: dummy
+    library_path: /usr/share/sysdig/plugins/libdummy.so
+    init_config:
+      jitter: 10
+    open_params: ''{"start":1, "maxEvents": 10}''
+load_plugins: [dummy]
