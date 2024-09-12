@@ -300,3 +300,25 @@ As an alternative, you can use the options -H and/or -I in the command line to c
 ```
 sysdig -H dummy:'{"jitter":50}' -I dummy:'{"start":1,"maxEvents":10}'
 ```
+
+## Part 9 - Capture Samples
+
+The first example is a ```404 Error``` message:
+
+```
+wget https://github.com/draios/sysdig-inspect/raw/dev/capture-samples/404Error.scap
+```
+
+The second example is a ```502 Error``` message:
+```
+wget https://github.com/draios/sysdig-inspect/raw/dev/capture-samples/502Error.scap
+```
+
+You can opens these example SCAP files within your Sysdig Inspect UI. <br/>
+You can either download the Sysdig UI tooling alone, or port forward the Docker container image:
+
+```
+docker run -d -v /local/path/to/captures:/captures -p8080:3000 sysdig/sysdig-inspect:latest
+```
+
+Sysdig Inspect will be available in your browser at ```http://localhost:8080```
