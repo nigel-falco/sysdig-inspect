@@ -322,3 +322,12 @@ docker run -d -v /local/path/to/captures:/captures -p8080:3000 sysdig/sysdig-ins
 ```
 
 Sysdig Inspect will be available in your browser at ```http://localhost:8080```
+
+
+## Part 10 - Kubernetes Deployment Manifest
+
+
+Testing this in Docker Desktop to see if the existing image [sysdig/sysdig](https://hub.docker.com/r/sysdig/sysdig) is stable:
+```
+kubectl apply -f https://raw.githubusercontent.com/nigel-falco/sysdig-inspect/main/sysdig-deployment.yaml
+```
