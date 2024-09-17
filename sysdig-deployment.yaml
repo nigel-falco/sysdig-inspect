@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sysdig
+  labels:
+    app: sysdig
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sysdig
+  template:
+    metadata:
+      labels:
+        app: sysdig
+    spec:
+      containers:
+      - name: sysdig
+        image: sysdig/sysdig:latest
+        securityContext:
+          privileged: true  # Sysdig requires privileged mode to access kernel-level metrics
+        volumeMounts:
+          - mountPath: /host/proc
+            name: proc
+            readOnly: true
+          - mountPath: /host/boot
+            name: boot
+            readOnly: true
+          - mountPath: /host/lib/modules
+            name: modules
+            readOnly: true
+      volumes:
+      - name: proc
+        hostPath:
+          path: /proc
+      - name: boot
+        hostPath:
+          path: /boot
+      - name: modules
+        hostPath:
+          path: /lib/modules
