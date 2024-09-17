@@ -19,6 +19,8 @@ spec:
         image: sysdig/sysdig:latest
         securityContext:
           privileged: true  # Sysdig requires privileged mode to access kernel-level metrics
+        command: ["/bin/sh"]
+        args: ["-c", "sysdig -w /capture/output.scap"]
         volumeMounts:
           - mountPath: /host/proc
             name: proc
@@ -28,7 +30,8 @@ spec:
             readOnly: true
           - mountPath: /host/lib/modules
             name: modules
-            readOnly: true
+          - mountPath: /capture
+            name: capture
       volumes:
       - name: proc
         hostPath:
@@ -39,3 +42,5 @@ spec:
       - name: modules
         hostPath:
           path: /lib/modules
+      - name: capture
+        emptyDir: {}
