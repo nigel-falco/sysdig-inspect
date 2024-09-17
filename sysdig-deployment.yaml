@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sysdig
-  labels:
-    app: sysdig
 spec:
   replicas: 1
   selector:
@@ -15,32 +13,29 @@ spec:
         app: sysdig
     spec:
       containers:
-      - name: sysdig
-        image: sysdig/sysdig:latest
-        securityContext:
-          privileged: true  # Sysdig requires privileged mode to access kernel-level metrics
-        command: ["/bin/sh"]
-        args: ["-c", "sysdig -w /capture/output.scap"]
-        volumeMounts:
-          - mountPath: /host/proc
-            name: proc
-            readOnly: true
-          - mountPath: /host/boot
-            name: boot
-            readOnly: true
-          - mountPath: /host/lib/modules
-            name: modules
-          - mountPath: /capture
-            name: capture
+        - name: sysdig
+          image: sysdig/sysdig
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: dev-vol
+              mountPath: /host/dev
+            - name: proc-vol
+              mountPath: /host/proc
+            - name: boot-vol
+              mountPath: /host/boot
+            - name: modules-vol
+              mountPath: /lib/modules
       volumes:
-      - name: proc
-        hostPath:
-          path: /proc
-      - name: boot
-        hostPath:
-          path: /boot
-      - name: modules
-        hostPath:
-          path: /lib/modules
-      - name: capture
-        emptyDir: {}
+        - name: dev-vol
+          hostPath:
+            path: /dev
+        - name: proc-vol
+          hostPath:
+            path: /proc
+        - name: boot-vol
+          hostPath:
+            path: /boot
+        - name: modules-vol
+          hostPath:
+            path: /lib/modules
