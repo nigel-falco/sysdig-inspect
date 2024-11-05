@@ -331,3 +331,33 @@ Testing this in Docker Desktop to see if the existing image [sysdig/sysdig](http
 ```
 kubectl apply -f https://raw.githubusercontent.com/nigel-falco/sysdig-inspect/main/sysdig-deployment.yaml
 ```
+
+## Tetragon Stuff
+```
+kubectl get nodes
+```
+
+```
+wget https://raw.githubusercontent.com/nigel-falco/sysdig-inspect/refs/heads/main/tetragon.yaml
+```
+
+```
+helm repo add cilium https://helm.cilium.io
+helm repo update
+helm install tetragon cilium/tetragon \
+  -n kube-system -f tetragon.yaml --version 1.1.0
+```
+
+```
+kubectl rollout status -n kube-system ds/tetragon -w
+```
+
+```
+wget https://raw.githubusercontent.com/nigel-falco/sysdig-inspect/refs/heads/main/networking.yaml
+kubectl apply -f networking.yaml
+```
+
+```
+kubectl exec -n kube-system -ti daemonset/tetragon -c tetragon -- \
+	tetra getevents -o compact
+```
